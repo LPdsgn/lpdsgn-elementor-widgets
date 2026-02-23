@@ -46,7 +46,7 @@ class Scroll_Down_Spinner extends \Elementor\Widget_Base {
             [
                 'label'       => esc_html__('Dimensione', 'lp-widgets'),
                 'type'        => Controls_Manager::TEXT,
-                'default'     => 'example',
+                'default'     => '120',
                 'description' => esc_html__("Only numbers allowed", 'lp-widgets'),
             ]
         );
@@ -77,7 +77,7 @@ class Scroll_Down_Spinner extends \Elementor\Widget_Base {
             return;
         }
 ?>
-        <img decoding="async" class="looped-animation-rotate <?php echo esc_attr($color); ?>" height="<?php echo esc_attr($settings['dimension']); ?>" width="<?php echo esc_attr($settings['dimension']); ?>" src="<?php echo esc_url(get_stylesheet_directory_uri() . '/lp-elementor-widgets/scrollDownSpinner/scrollDownSpinner.png'); ?>" alt="Scroll to see more content">
+        <img decoding="async" class="looped-animation-rotate <?php echo esc_attr($color); ?>" height="<?php echo esc_attr($settings['dimension']); ?>" width="<?php echo esc_attr($settings['dimension']); ?>" src="<?php echo esc_url(get_stylesheet_directory_uri() . '/widgets/scrollDownSpinner/scrollDownSpinner.png'); ?>" alt="Scroll to see more content">
 <?php
     }
 }

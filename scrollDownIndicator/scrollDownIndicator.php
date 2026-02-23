@@ -7,7 +7,7 @@ class Scroll_Down_Indicator extends \Elementor\Widget_Base
 
     public function __construct($data = [], $args = null) {
         parent::__construct($data, $args);
-        require_once(get_stylesheet_directory() . '/lp-elementor-widgets/scrollDownIndicator/hex_to_rgba.php');
+        require_once(get_stylesheet_directory() . '/widgets/scrollDownIndicator/hex_to_rgba.php');
     }
 
     public function get_name() {
