@@ -45,3 +45,27 @@ add_action('wp_enqueue_scripts', 'registerStyle_scrollDownSpinner');
  * @version 1.0.1
  */
 require_once(get_stylesheet_directory() . '/widgets/shapeDividers/customShapeDividers.php');
+
+/**
+ * Veicoli Elementor Widgets
+ * Requires: ACF Pro, Elementor, Elementor Pro
+ * @package lp-elementor-widgets
+ * @version 1.0.0
+ */
+add_action('after_setup_theme', function () {
+    // Carica solo se ACF Pro, Elementor e Elementor Pro sono attivi
+    $has_acf_pro = class_exists('ACF') && defined('ACF_PRO');
+    $has_elementor = did_action('elementor/loaded') || class_exists('\Elementor\Plugin');
+    $has_elementor_pro = class_exists('\ElementorPro\Plugin');
+
+    // Hook tardivo per dare tempo ai plugin di caricarsi
+    add_action('init', function () {
+        $has_acf_pro = class_exists('ACF') && defined('ACF_PRO');
+        $has_elementor = did_action('elementor/loaded') || class_exists('\Elementor\Plugin');
+        $has_elementor_pro = class_exists('\ElementorPro\Plugin');
+
+        if ( $has_acf_pro && $has_elementor && $has_elementor_pro ) {
+            require_once get_stylesheet_directory() . '/widgets/veicoli/veicoli-elementor-widgets.php';
+        }
+    }, 5);
+});

@@ -1,0 +1,427 @@
+/**
+ * File: assets/veicoli-widgets.css
+ * Stili per i widget Elementor Veicoli
+ */
+
+/* ==========================================
+   FILTRO VEICOLI
+   ========================================== */
+
+.veicoli-filter-wrapper {
+	position: relative;
+}
+
+/* Accordion Toggle - Visibile solo su mobile */
+.veicoli-filter-toggle {
+	display: none; /* Nascosto di default (desktop) */
+	width: 100%;
+	text-align: left;
+	display: flex;
+	align-items: center;
+	gap: var(--2xs, 0.5rem);
+	cursor: pointer;
+	color: var(--e-global-color-uicore_dark, #333);
+	transition: all 0.3s ease;
+}
+
+.veicoli-filter-toggle .toggle-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--step-1, inherit);
+	color: currentColor;
+}
+
+.veicoli-filter-toggle .toggle-title {
+	flex: 1;
+}
+
+.veicoli-filter-toggle .toggle-chevron {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.3s ease;
+	color: currentColor;
+	font-size: var(--step-0, inherit);
+}
+
+.veicoli-filter-toggle[aria-expanded="true"] .toggle-chevron {
+	transform: rotate(180deg);
+}
+
+/* Contenuto collassabile */
+.veicoli-filter-content {
+	transition: max-height 0.3s ease, opacity 0.3s ease;
+	overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.veicoli-filter .filter-row {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+
+	.filter-actions .elementor-button-wrapper  {
+		flex-grow: 1;
+	}
+}
+
+/* Mobile: Nascosto di default */
+@media (max-width: 1023px) {
+	.veicoli-filter-toggle {
+		display: flex; /* Mostra accordion su mobile */
+	}
+
+	.veicoli-filter-content {
+		max-height: 0;
+		opacity: 0;
+	}
+
+	.veicoli-filter-content.is-open {
+		max-height: 2000px; /* Altezza massima per animazione smooth */
+		opacity: 1;
+		margin-top: var(--s, 1rem);
+	}
+
+	.veicoli-filter .filter-row {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* Desktop: Sempre visibile */
+@media (min-width: 1024px) {
+	.veicoli-filter-toggle {
+		display: none !important; /* Nascondi sempre su desktop */
+	}
+
+	.veicoli-filter-content {
+		max-height: none;
+		opacity: 1;
+	}
+
+	.veicoli-filter .filter-row {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.veicoli-filter .filter-row {
+	display: grid;
+	gap: var(--s-m, 30px) var(--xs-s, 20px);
+	margin-bottom: 20px;
+}
+
+.filter-field {
+	display: flex;
+	flex-direction: column;
+}
+
+.filter-field label {
+	display: block;
+	margin-bottom: .5rem;
+	font-weight: 600;
+	font-size: var(--step--2, 13px);
+	color: #333;
+	line-height: 1;
+}
+
+.filter-field select,
+.filter-field input {
+	background-color: var(--e-global-color-uicore_white, #fff);
+	border-radius: clamp(4px, 2.7797px + 0.339vw, 8px);
+	border-color: var(--e-global-color-abe7521, #e6e6e6);
+}
+
+.filter-field select:focus,
+.filter-field input:focus {
+	outline: none;
+	border-color: var(--e-global-color-uicore_primary, rgb(254, 2, 2));
+	box-shadow: 0 0 0 3px rgb(from var(--e-global-color-uicore_primary, rgb(254, 2, 2)) r g b / 0.1);
+}
+
+.filter-search input {
+	padding-left: 40px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: 12px center;
+	background-size: 18px;
+}
+
+.filter-actions {
+	display: flex;
+	gap: var(--xs-s, 20px);
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+
+/* Wrapper dei pulsanti (dal Button_Trait) */
+.filter-actions .elementor-button-wrapper {
+	display: inline-block;
+}
+.filter-actions button {
+	cursor: pointer;
+	width: 100%;
+}
+
+.filter-loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	background: rgba(255, 255, 255, 0.95);
+	padding: var(--l, clamp(32px, 29.5593px + 0.678vw, 40px)) var(--m-l, clamp(24px, 19.1186px + 1.3559vw, 40px));
+	border-radius: clamp(4px, 2.7797px + 0.339vw, 8px);
+	box-shadow: 0 8px 36px -12px rgba(0, 0, 0, 0.25);
+	z-index: 1000;
+}
+
+.filter-loading .spinner {
+	border: 4px solid var(--e-global-color-fb93d7d, #e6e6e6);
+	border-top: 4px solid var(--e-global-color-uicore_primary, rgb(254, 2, 2));
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	animation: spin 1s linear infinite;
+	margin: 0 auto 15px;
+}
+
+.filter-loading p {
+	margin-bottom: 0;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* ==========================================
+   PREZZO DINAMICO VEICOLO
+   ========================================== */
+
+.prezzo-principale {
+	display: flex;
+	gap: var(--2xs, .5rem);
+	align-items: baseline;
+}
+
+.prezzo-valore {
+	font-size: var(--step-5, 3.11rem);
+	font-weight: 700;
+	line-height: 1;
+	transition: all 0.3s ease;
+}
+
+.prezzo-label {
+	font-size: var(--step-2, 1.15rem);
+}
+.prezzo-label small {
+	font-size: var(--step--2);
+	opacity: 0.75;
+}
+
+.piano-dettagli {
+	display: flex;
+	flex-flow: row nowrap;
+	gap: var(--2xs, .5rem);
+	align-items: baseline;
+	font-size: var(--step--1, 1rem);
+}
+
+.piano-dettagli .dettaglio-durata,
+.piano-dettagli .dettaglio-km,
+.piano-dettagli .dettaglio-anticipo {
+	transition: all 0.3s ease;
+}
+
+.piano-dettagli .dettaglio-separatore {
+	opacity: 0.5;
+}
+
+.piano-dettagli .anticipo-valore {
+	font-weight: 600;
+	transition: all 0.3s ease;
+}
+
+/* Toggle Anticipo */
+.anticipo-toggle {
+	display: flex;
+	align-items: center;
+	gap: var(--xs, .5rem);
+	padding: var(--xs-s) 0;
+	border-width: 1px 0;
+  	border-color: var(--e-global-color-fb93d7d);
+  	border-style: solid;
+	margin: var(--xs) 0;
+}
+
+.toggle-switch {
+	position: relative;
+	display: inline-block;
+	width: clamp(48px, 44.339px + 1.0169vw, 60px);
+	height: clamp(28px, 24.8644px + 0.5932vw, 34px);
+	flex-shrink: 0;
+}
+
+.toggle-switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.toggle-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--e-global-color-abe7521, rgb(191, 191, 191));
+	transition: 0.4s;
+	border-radius: 34px;
+}
+
+.toggle-slider:before {
+	position: absolute;
+	content: "";
+	height: clamp(20px, 18.1695px + 0.5085vw, 26px);
+	width: clamp(20px, 18.1695px + 0.5085vw, 26px);
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	transition: 0.4s;
+	border-radius: 50%;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .toggle-slider {
+	background-color: var(--e-global-color-uicore_primary, rgb(254, 2, 2));
+}
+
+input:checked + .toggle-slider:before {
+	transform: translateX(clamp(20px, 18.1695px + 0.5085vw, 26px));
+}
+
+.toggle-label {
+	font-size: var(--step--1, 1rem);
+	flex: 1;
+}
+
+.anticipo-importo {
+	font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: 0.025em;
+}
+
+/* Selettore Piano */
+.piano-selector label {
+	display: block;
+	margin-bottom: var(--2xs, .45em);
+	font-size: var(--step--1, 1rem);
+	font-weight: 600;
+}
+
+.piano-dropdown {
+  width: 100%;
+  padding: var(--2xs);
+  font-size: var(--step--1, 1rem);
+  border: 1px solid var(--e-global-color-abe7521, rgb(191, 191, 191));
+  border-radius: var(--2xs);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.piano-dropdown:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px var(--e-global-color-uicore_primary, rgba(254, 2, 2, 0.33));
+}
+
+/* Animazioni */
+@keyframes pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+}
+
+.prezzo-valore.updating {
+	animation: pulse 0.5s ease;
+}
+
+/* ==========================================
+   LOOP INFO - CATEGORIA CONDIZIONALE
+   ========================================== */
+
+/* Breve Termine: nascondi separatore e dettagli automaticamente */
+.veicolo-loop-info.categoria-breve-termine {
+	/* Inserisci qui stile condizionale */
+}
+
+/* ==========================================
+   PRICING - BREVE TERMINE
+   ========================================== */
+
+/* Selettore durata con pulsanti */
+.durata-selector-breve .durata-buttons {
+	display: flex;
+	gap: var(--2xs, 0.5rem);
+	flex-wrap: wrap;
+	margin-top: var(--2xs, 0.5rem);
+}
+
+.durata-button {
+	flex: 1 1 calc(50% - var(--2xs, 0.5rem));
+	min-width: max-content;
+	padding: var(--xs, 0.75rem) var(--s, 1rem);
+	font-size: var(--step--1, 1rem);
+	font-weight: 600;
+	border: 2px solid var(--e-global-color-abe7521, rgb(191, 191, 191));
+	background-color: var(--e-global-color-uicore_white, #fff);
+	color: var(--e-global-color-uicore_dark, #333);
+	border-radius: var(--2xs, 0.5rem);
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-align: center;
+}
+
+.durata-button:hover {
+	border-color: var(--e-global-color-uicore_primary, rgb(254, 2, 2));
+	background-color: rgba(from var(--e-global-color-uicore_primary, rgb(254, 2, 2)) r g b / 0.05);
+}
+
+.durata-button.active,
+.durata-button[aria-pressed="true"] {
+	border-color: var(--e-global-color-uicore_primary, rgb(254, 2, 2));
+	background-color: var(--e-global-color-uicore_primary, rgb(254, 2, 2));
+	color: var(--e-global-color-uicore_white, #fff);
+}
+
+.durata-button:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(from var(--e-global-color-uicore_primary, rgb(254, 2, 2)) r g b / 0.3);
+}
+
+/* Responsive per pulsanti durata */
+@media (max-width: 768px) {
+	.durata-buttons {
+		gap: var(--3xs, 0.35rem);
+	}
+	
+	.durata-button {
+		flex: 1 1 calc(50% - var(--3xs, 0.35rem));
+		padding: var(--2xs, 0.5rem) var(--xs, 0.75rem);
+		font-size: var(--step--2, 0.875rem);
+	}
+}
+
+/* Nascondi piano-dettagli e anticipo-toggle per Breve Termine */
+.veicolo-pricing-wrapper.categoria-breve-termine .piano-dettagli,
+.veicolo-pricing-wrapper.categoria-breve-termine .anticipo-toggle {
+	display: none !important;
+}
