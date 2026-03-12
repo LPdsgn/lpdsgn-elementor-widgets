@@ -1,0 +1,20 @@
+# Tratta tutto come testo di default, poi sovrascrivi per i binari
+* text=auto
+
+# Immagini — sempre binarie, nessuna conversione
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.bmp  binary
+*.tiff binary
+*.svg  text eol=lf
+
+# Altri binari comuni
+*.pdf  binary
+*.zip  binary
+*.ttf  binary
+*.woff binary
+*.woff2 binary

@@ -786,6 +786,25 @@ class Breadcrumbs extends \Elementor\Widget_Base {
 			];
 		}
 
+		// ── Blog archive (is_home) ──────────────
+		if ( is_home() ) {
+			$breadcrumbs[] = [
+				'title' => $blog_page_id ? get_the_title( $blog_page_id ) : __( 'Blog', 'lp-widgets' ),
+				'url' => '',
+			];
+		}
+
+		// ── Post Type archive ────────────────────
+		if ( is_post_type_archive() ) {
+			$pto = get_queried_object();
+			if ( $pto ) {
+				$breadcrumbs[] = [
+					'title' => $pto->labels->name,
+					'url' => '',
+				];
+			}
+		}
+
 		// ── Category archive ─────────────────────
 		if ( is_category() ) {
 			if ( $show_archive && $blog_page_id ) {
