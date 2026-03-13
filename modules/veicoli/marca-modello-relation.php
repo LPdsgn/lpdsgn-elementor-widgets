@@ -64,7 +64,7 @@ add_filter('acf/validate_value/key=field_68de99ba147c0', function ($valid, $valu
 	foreach ($values as $val) {
 		$linked = (int) get_term_meta((int) $val, 'produttore_collegato', true);
 		if ($linked && $linked !== $brand) {
-			return __('Il modello selezionato non appartiene al produttore scelto.', 'veicoli');
+			return __('Il modello selezionato non appartiene al produttore scelto.', 'lp-widgets-veicoli' );
 		}
 	}
 

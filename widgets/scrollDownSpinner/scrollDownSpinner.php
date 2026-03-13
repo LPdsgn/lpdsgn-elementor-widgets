@@ -54,7 +54,7 @@ class Scroll_Down_Spinner extends \Elementor\Widget_Base {
         $this->add_control(
             'color_switch',
             [
-                'label' => esc_html__('Colore', 'textdomain'),
+                'label' => esc_html__('Colore', 'lp-widgets'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Light', 'lp-widgets'),
                 'label_off' => esc_html__('Dark', 'lp-widgets'),

@@ -15,7 +15,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Veicolo Loop Info', 'veicoli' );
+		return esc_html__( 'Veicolo Loop Info', 'lp-widgets-veicoli' );
 	}
 
 	public function get_icon() {
@@ -191,7 +191,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => esc_html__( 'Contenuto', 'veicoli' ),
+				'label' => esc_html__( 'Contenuto', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -200,7 +200,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 			'info_notice',
 			[
 				'type' => \Elementor\Controls_Manager::RAW_HTML,
-				'raw' => esc_html__( 'Questo widget mostra automaticamente le informazioni del veicolo corrente nel loop.', 'veicoli' ),
+				'raw' => esc_html__( 'Questo widget mostra automaticamente le informazioni del veicolo corrente nel loop.', 'lp-widgets-veicoli' ),
 				'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
 			]
 		);
@@ -211,7 +211,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'style_nome',
 			[
-				'label' => esc_html__( 'Nome Veicolo', 'veicoli' ),
+				'label' => esc_html__( 'Nome Veicolo', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -227,7 +227,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'nome_color',
 			[
-				'label' => esc_html__( 'Colore', 'veicoli' ),
+				'label' => esc_html__( 'Colore', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .veicolo-nome' => 'color: {{VALUE}};',
@@ -238,7 +238,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'nome_margin',
 			[
-				'label' => esc_html__( 'Margine', 'veicoli' ),
+				'label' => esc_html__( 'Margine', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -253,7 +253,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'style_prezzo',
 			[
-				'label' => esc_html__( 'Prezzo', 'veicoli' ),
+				'label' => esc_html__( 'Prezzo', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -266,7 +266,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_tab(
 			'prezzo_group_tab',
 			[
-				'label' => esc_html__( 'Riga Prezzo', 'veicoli' ),
+				'label' => esc_html__( 'Riga Prezzo', 'lp-widgets-veicoli' ),
 			]
 		);
 
@@ -281,7 +281,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'prezzo_group_color',
 			[
-				'label' => esc_html__( 'Colore', 'veicoli' ),
+				'label' => esc_html__( 'Colore', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .veicolo-prezzo' => 'color: {{VALUE}};',
@@ -295,7 +295,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_tab(
 			'prezzo_cifra_tab',
 			[
-				'label' => esc_html__( 'Cifra Prezzo', 'veicoli' ),
+				'label' => esc_html__( 'Cifra Prezzo', 'lp-widgets-veicoli' ),
 			]
 		);
 
@@ -310,7 +310,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'prezzo_cifra_color',
 			[
-				'label' => esc_html__( 'Colore Prezzo', 'veicoli' ),
+				'label' => esc_html__( 'Colore Prezzo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .priceEvidence' => 'color: {{VALUE}};',
@@ -326,7 +326,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'prezzo_margin',
 			[
-				'label' => esc_html__( 'Margine', 'veicoli' ),
+				'label' => esc_html__( 'Margine', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors' => [
@@ -341,7 +341,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'style_separatore',
 			[
-				'label' => esc_html__( 'Separatore', 'veicoli' ),
+				'label' => esc_html__( 'Separatore', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -349,10 +349,10 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'mostra_separatore',
 			[
-				'label' => esc_html__( 'Mostra Separatore', 'veicoli' ),
+				'label' => esc_html__( 'Mostra Separatore', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Sì', 'veicoli' ),
-				'label_off' => esc_html__( 'No', 'veicoli' ),
+				'label_on' => esc_html__( 'Sì', 'lp-widgets-veicoli' ),
+				'label_off' => esc_html__( 'No', 'lp-widgets-veicoli' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -361,7 +361,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'separatore_color',
 			[
-				'label' => esc_html__( 'Colore', 'veicoli' ),
+				'label' => esc_html__( 'Colore', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .veicolo-separatore' => 'background-color: {{VALUE}};',
@@ -375,7 +375,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'separatore_width',
 			[
-				'label' => esc_html__( 'Spessore', 'veicoli' ),
+				'label' => esc_html__( 'Spessore', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -400,7 +400,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'separatore_margin',
 			[
-				'label' => esc_html__( 'Margine', 'veicoli' ),
+				'label' => esc_html__( 'Margine', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', '%' ],
 				'range' => [
@@ -438,7 +438,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'style_dettagli',
 			[
-				'label' => esc_html__( 'Dettagli', 'veicoli' ),
+				'label' => esc_html__( 'Dettagli', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -454,7 +454,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'dettagli_color',
 			[
-				'label' => esc_html__( 'Colore', 'veicoli' ),
+				'label' => esc_html__( 'Colore', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .veicolo-dettagli' => 'color: {{VALUE}};',
@@ -465,7 +465,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'dettagli_bullet_color',
 			[
-				'label' => esc_html__( 'Colore separatore', 'veicoli' ),
+				'label' => esc_html__( 'Colore separatore', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .veicolo-dettagli .bullet' => 'color: {{VALUE}};',
@@ -476,7 +476,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'dettagli_bullet_margin_x',
 			[
-				'label' => esc_html__( 'Margine X separatore', 'veicoli' ),
+				'label' => esc_html__( 'Margine X separatore', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em' ],
 				'range' => [
@@ -503,7 +503,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'dettagli_margin',
 			[
-				'label' => esc_html__( 'Margine', 'veicoli' ),
+				'label' => esc_html__( 'Margine', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -521,7 +521,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 
 		// Verifica ACF
 		if ( ! function_exists( 'get_field' ) ) {
-			echo '<p>' . esc_html__( 'ACF non disponibile', 'veicoli' ) . '</p>';
+			echo '<p>' . esc_html__( 'ACF non disponibile', 'lp-widgets-veicoli' ) . '</p>';
 			return;
 		}
 
@@ -580,7 +580,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 					echo '<div class="veicolo-dettagli">' . implode( '<span class="bullet">&bull;</span>', $dettagli_parts ) . '</div>';
 				}
 			} else {
-				echo '<div class="veicolo-prezzo">' . esc_html__( 'Prezzo non disponibile', 'veicoli' ) . '</div>';
+				echo '<div class="veicolo-prezzo">' . esc_html__( 'Prezzo non disponibile', 'lp-widgets-veicoli' ) . '</div>';
 			}
 		}
 		// === LUNGO TERMINE / COMMERCIALI ===
@@ -588,7 +588,7 @@ class Veicolo_Loop_Info_Widget extends \Elementor\Widget_Base {
 			$piano_data = $this->get_prezzo_minimo_lungo_termine( $post_id );
 
 			if ( ! $piano_data ) {
-				echo '<div class="veicolo-prezzo">' . esc_html__( 'Prezzo non disponibile', 'veicoli' ) . '</div>';
+				echo '<div class="veicolo-prezzo">' . esc_html__( 'Prezzo non disponibile', 'lp-widgets-veicoli' ) . '</div>';
 				echo '</div>';
 				return;
 			}

@@ -14,7 +14,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Filtro Veicoli', 'veicoli' );
+		return esc_html__( 'Filtro Veicoli', 'lp-widgets-veicoli' );
 	}
 
 	public function get_icon() {
@@ -47,7 +47,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => esc_html__( 'Impostazioni Filtro', 'veicoli' ),
+				'label' => esc_html__( 'Impostazioni Filtro', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -55,7 +55,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'loop_id',
 			[
-				'label' => esc_html__( 'ID del Loop Grid', 'veicoli' ),
+				'label' => esc_html__( 'ID del Loop Grid', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => '',
 				'description' => 'Lascia vuoto per usare il Loop Grid nella stessa pagina, oppure inserisci l\'ID CSS custom del Loop Grid',
@@ -65,7 +65,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'show_search',
 			[
-				'label' => esc_html__( 'Mostra campo ricerca testo', 'veicoli' ),
+				'label' => esc_html__( 'Mostra campo ricerca testo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -74,17 +74,17 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'accordion_title',
 			[
-				'label' => esc_html__( 'Titolo Accordion (Mobile)', 'veicoli' ),
+				'label' => esc_html__( 'Titolo Accordion (Mobile)', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Filtra i veicoli', 'veicoli' ),
-				'description' => esc_html__( 'Visibile solo su schermi < 1024px. Il filtro sarà collassato di default.', 'veicoli' ),
+				'default' => esc_html__( 'Filtra i veicoli', 'lp-widgets-veicoli' ),
+				'description' => esc_html__( 'Visibile solo su schermi < 1024px. Il filtro sarà collassato di default.', 'lp-widgets-veicoli' ),
 			]
 		);
 
 		$this->add_control(
 			'accordion_icon',
 			[
-				'label' => esc_html__( 'Icona Accordion', 'veicoli' ),
+				'label' => esc_html__( 'Icona Accordion', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-filter',
@@ -96,13 +96,13 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'accordion_chevron_icon',
 			[
-				'label' => esc_html__( 'Icona Chevron', 'veicoli' ),
+				'label' => esc_html__( 'Icona Chevron', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-chevron-down',
 					'library' => 'fa-solid',
 				],
-				'description' => esc_html__( 'Icona che indica lo stato aperto/chiuso del filtro', 'veicoli' ),
+				'description' => esc_html__( 'Icona che indica lo stato aperto/chiuso del filtro', 'lp-widgets-veicoli' ),
 			]
 		);
 
@@ -112,7 +112,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'accordion_style_section',
 			[
-				'label' => esc_html__( 'Stile Accordion (Mobile)', 'veicoli' ),
+				'label' => esc_html__( 'Stile Accordion (Mobile)', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -121,7 +121,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'accordion_typography',
-				'label' => esc_html__( 'Tipografia', 'veicoli' ),
+				'label' => esc_html__( 'Tipografia', 'lp-widgets-veicoli' ),
 				'selector' => '{{WRAPPER}} .veicoli-filter-toggle',
 			]
 		);
@@ -129,7 +129,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'accordion_text_color',
 			[
-				'label' => esc_html__( 'Colore Testo', 'veicoli' ),
+				'label' => esc_html__( 'Colore Testo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .veicoli-filter-toggle' => 'color: {{VALUE}};',
@@ -140,7 +140,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'accordion_icon_color',
 			[
-				'label' => esc_html__( 'Colore Icona', 'veicoli' ),
+				'label' => esc_html__( 'Colore Icona', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .veicoli-filter-toggle .toggle-icon' => 'color: {{VALUE}};',
@@ -169,7 +169,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'accordion_border_radius',
 			[
-				'label' => esc_html__( 'Raggio del bordo', 'veicoli' ),
+				'label' => esc_html__( 'Raggio del bordo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -181,7 +181,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'accordion_padding',
 			[
-				'label' => esc_html__( 'Padding', 'veicoli' ),
+				'label' => esc_html__( 'Padding', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -196,7 +196,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'style_section',
 			[
-				'label' => esc_html__( 'Stile Filtro', 'veicoli' ),
+				'label' => esc_html__( 'Stile Filtro', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -204,7 +204,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'filter_background_color',
 			[
-				'label' => esc_html__( 'Colore Sfondo', 'veicoli' ),
+				'label' => esc_html__( 'Colore Sfondo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .veicoli-filter' => 'background-color: {{VALUE}}',
@@ -216,7 +216,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'label_typography',
-				'label' => esc_html__( 'Tipografia Etichette', 'veicoli' ),
+				'label' => esc_html__( 'Tipografia Etichette', 'lp-widgets-veicoli' ),
 				'selector' => '{{WRAPPER}} .filter-field label',
 			]
 		);
@@ -224,7 +224,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'filter_padding',
 			[
-				'label' => esc_html__( 'Padding', 'veicoli' ),
+				'label' => esc_html__( 'Padding', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', 'rem', '%', 'custom' ],
 				'selectors' => [
@@ -239,7 +239,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'button_apply_section',
 			[
-				'label' => esc_html__( 'Pulsante "Applica Filtro"', 'veicoli' ),
+				'label' => esc_html__( 'Pulsante "Applica Filtro"', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -247,16 +247,16 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'apply_text',
 			[
-				'label' => esc_html__( 'Testo Pulsante', 'veicoli' ),
+				'label' => esc_html__( 'Testo Pulsante', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Applica filtro', 'veicoli' ),
+				'default' => esc_html__( 'Applica filtro', 'lp-widgets-veicoli' ),
 			]
 		);
 
 		$this->add_control(
 			'apply_selected_icon',
 			[
-				'label' => esc_html__( 'Icona', 'veicoli' ),
+				'label' => esc_html__( 'Icona', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-search',
@@ -268,16 +268,16 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'apply_icon_align',
 			[
-				'label' => esc_html__( 'Posizione Icona', 'veicoli' ),
+				'label' => esc_html__( 'Posizione Icona', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'default' => 'row',
 				'options' => [
 					'row' => [
-						'title' => esc_html__( 'Sinistra', 'veicoli' ),
+						'title' => esc_html__( 'Sinistra', 'lp-widgets-veicoli' ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'row-reverse' => [
-						'title' => esc_html__( 'Destra', 'veicoli' ),
+						'title' => esc_html__( 'Destra', 'lp-widgets-veicoli' ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -290,7 +290,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'apply_icon_indent',
 			[
-				'label' => esc_html__( 'Spaziatura Icona', 'veicoli' ),
+				'label' => esc_html__( 'Spaziatura Icona', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', 'rem' ],
 				'range' => [
@@ -315,7 +315,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'button_reset_section',
 			[
-				'label' => esc_html__( 'Pulsante "Resetta Filtro"', 'veicoli' ),
+				'label' => esc_html__( 'Pulsante "Resetta Filtro"', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -324,16 +324,16 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'reset_text',
 			[
-				'label' => esc_html__( 'Testo Pulsante', 'veicoli' ),
+				'label' => esc_html__( 'Testo Pulsante', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Resetta filtro', 'veicoli' ),
+				'default' => esc_html__( 'Resetta filtro', 'lp-widgets-veicoli' ),
 			]
 		);
 
 		$this->add_control(
 			'reset_selected_icon',
 			[
-				'label' => esc_html__( 'Icona', 'veicoli' ),
+				'label' => esc_html__( 'Icona', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-redo',
@@ -345,16 +345,16 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'reset_icon_align',
 			[
-				'label' => esc_html__( 'Posizione Icona', 'veicoli' ),
+				'label' => esc_html__( 'Posizione Icona', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'default' => 'row',
 				'options' => [
 					'row' => [
-						'title' => esc_html__( 'Sinistra', 'veicoli' ),
+						'title' => esc_html__( 'Sinistra', 'lp-widgets-veicoli' ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'row-reverse' => [
-						'title' => esc_html__( 'Destra', 'veicoli' ),
+						'title' => esc_html__( 'Destra', 'lp-widgets-veicoli' ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -367,7 +367,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'reset_icon_indent',
 			[
-				'label' => esc_html__( 'Spaziatura Icona', 'veicoli' ),
+				'label' => esc_html__( 'Spaziatura Icona', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', 'rem' ],
 				'range' => [
@@ -392,7 +392,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'button_apply_style_section',
 			[
-				'label' => esc_html__( 'Stile Pulsante Applica', 'veicoli' ),
+				'label' => esc_html__( 'Stile Pulsante Applica', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -411,14 +411,14 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_tab(
 			'apply_tab_normal',
 			[
-				'label' => esc_html__( 'Normale', 'veicoli' ),
+				'label' => esc_html__( 'Normale', 'lp-widgets-veicoli' ),
 			]
 		);
 
 		$this->add_control(
 			'apply_text_color',
 			[
-				'label' => esc_html__( 'Colore del testo', 'veicoli' ),
+				'label' => esc_html__( 'Colore del testo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-apply' => 'color: {{VALUE}};',
@@ -441,14 +441,14 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_tab(
 			'apply_tab_hover',
 			[
-				'label' => esc_html__( 'Hover', 'veicoli' ),
+				'label' => esc_html__( 'Hover', 'lp-widgets-veicoli' ),
 			]
 		);
 
 		$this->add_control(
 			'apply_hover_color',
 			[
-				'label' => esc_html__( 'Colore del testo', 'veicoli' ),
+				'label' => esc_html__( 'Colore del testo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-apply:hover' => 'color: {{VALUE}};',
@@ -468,7 +468,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'apply_hover_border_color',
 			[
-				'label' => esc_html__( 'Colore del bordo', 'veicoli' ),
+				'label' => esc_html__( 'Colore del bordo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-apply:hover' => 'border-color: {{VALUE}};',
@@ -479,7 +479,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'apply_hover_animation',
 			[
-				'label' => esc_html__( 'Animazione', 'veicoli' ),
+				'label' => esc_html__( 'Animazione', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -500,7 +500,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'apply_border_radius',
 			[
-				'label' => esc_html__( 'Raggio del bordo', 'veicoli' ),
+				'label' => esc_html__( 'Raggio del bordo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -512,7 +512,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'apply_text_padding',
 			[
-				'label' => esc_html__( 'Padding', 'veicoli' ),
+				'label' => esc_html__( 'Padding', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -527,7 +527,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'button_reset_style_section',
 			[
-				'label' => esc_html__( 'Stile Pulsante Reset', 'veicoli' ),
+				'label' => esc_html__( 'Stile Pulsante Reset', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -546,14 +546,14 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_tab(
 			'reset_tab_normal',
 			[
-				'label' => esc_html__( 'Normale', 'veicoli' ),
+				'label' => esc_html__( 'Normale', 'lp-widgets-veicoli' ),
 			]
 		);
 
 		$this->add_control(
 			'reset_text_color',
 			[
-				'label' => esc_html__( 'Colore del testo', 'veicoli' ),
+				'label' => esc_html__( 'Colore del testo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-reset' => 'color: {{VALUE}};',
@@ -576,14 +576,14 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_tab(
 			'reset_tab_hover',
 			[
-				'label' => esc_html__( 'Hover', 'veicoli' ),
+				'label' => esc_html__( 'Hover', 'lp-widgets-veicoli' ),
 			]
 		);
 
 		$this->add_control(
 			'reset_hover_color',
 			[
-				'label' => esc_html__( 'Colore del testo', 'veicoli' ),
+				'label' => esc_html__( 'Colore del testo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-reset:hover' => 'color: {{VALUE}};',
@@ -603,7 +603,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'reset_hover_border_color',
 			[
-				'label' => esc_html__( 'Colore del bordo', 'veicoli' ),
+				'label' => esc_html__( 'Colore del bordo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-reset:hover' => 'border-color: {{VALUE}};',
@@ -614,7 +614,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'reset_hover_animation',
 			[
-				'label' => esc_html__( 'Animazione', 'veicoli' ),
+				'label' => esc_html__( 'Animazione', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -635,7 +635,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'reset_border_radius',
 			[
-				'label' => esc_html__( 'Raggio del bordo', 'veicoli' ),
+				'label' => esc_html__( 'Raggio del bordo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -647,7 +647,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'reset_text_padding',
 			[
-				'label' => esc_html__( 'Padding', 'veicoli' ),
+				'label' => esc_html__( 'Padding', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -709,17 +709,17 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 				<?php if ( $settings['show_search'] === 'yes' ) : ?>
 					<div class="filter-row">
 						<div class="filter-field filter-search">
-							<label><?php esc_html_e( 'Cerca il tuo veicolo', 'veicoli' ); ?></label>
-							<input type="text" name="search" placeholder="<?php esc_attr_e( 'Es: Mazda 2', 'veicoli' ); ?>">
+							<label><?php esc_html_e( 'Cerca il tuo veicolo', 'lp-widgets-veicoli' ); ?></label>
+							<input type="text" name="search" placeholder="<?php esc_attr_e( 'Es: Mazda 2', 'lp-widgets-veicoli' ); ?>">
 						</div>
 					</div>
 				<?php endif; ?>
 
 				<div class="filter-row">
 					<div class="filter-field">
-						<label><?php esc_html_e( 'Produttore', 'veicoli' ); ?></label>
+						<label><?php esc_html_e( 'Produttore', 'lp-widgets-veicoli' ); ?></label>
 						<select name="produttore">
-							<option value=""><?php esc_html_e( '- Produttore -', 'veicoli' ); ?></option>
+							<option value=""><?php esc_html_e( '- Produttore -', 'lp-widgets-veicoli' ); ?></option>
 							<?php foreach ( $produttori as $term ) : ?>
 								<option value="<?php echo esc_attr( $term->slug ); ?>"><?php echo esc_html( $term->name ); ?></option>
 							<?php endforeach; ?>
@@ -727,9 +727,9 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 					</div>
 
 					<div class="filter-field">
-						<label><?php esc_html_e( 'Modello', 'veicoli' ); ?></label>
+						<label><?php esc_html_e( 'Modello', 'lp-widgets-veicoli' ); ?></label>
 						<select name="modello">
-							<option value=""><?php esc_html_e( '- Modello -', 'veicoli' ); ?></option>
+							<option value=""><?php esc_html_e( '- Modello -', 'lp-widgets-veicoli' ); ?></option>
 							<?php foreach ( $modelli as $term ) : ?>
 								<option value="<?php echo esc_attr( $term->slug ); ?>"><?php echo esc_html( $term->name ); ?></option>
 							<?php endforeach; ?>
@@ -737,9 +737,9 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 					</div>
 
 					<div class="filter-field">
-						<label><?php esc_html_e( 'Segmento', 'veicoli' ); ?></label>
+						<label><?php esc_html_e( 'Segmento', 'lp-widgets-veicoli' ); ?></label>
 						<select name="segmento">
-							<option value=""><?php esc_html_e( '- Segmento -', 'veicoli' ); ?></option>
+							<option value=""><?php esc_html_e( '- Segmento -', 'lp-widgets-veicoli' ); ?></option>
 							<?php foreach ( $segmenti as $term ) : ?>
 								<option value="<?php echo esc_attr( $term->slug ); ?>"><?php echo esc_html( $term->name ); ?></option>
 							<?php endforeach; ?>
@@ -747,9 +747,9 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 					</div>
 
 					<div class="filter-field">
-						<label><?php esc_html_e( 'Alimentazione', 'veicoli' ); ?></label>
+						<label><?php esc_html_e( 'Alimentazione', 'lp-widgets-veicoli' ); ?></label>
 						<select name="alimentazione">
-							<option value=""><?php esc_html_e( '- Alimentazione -', 'veicoli' ); ?></option>
+							<option value=""><?php esc_html_e( '- Alimentazione -', 'lp-widgets-veicoli' ); ?></option>
 							<?php foreach ( $alimentazioni as $term ) : ?>
 								<option value="<?php echo esc_attr( $term->slug ); ?>"><?php echo esc_html( $term->name ); ?></option>
 							<?php endforeach; ?>
@@ -757,9 +757,9 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 					</div>
 
 					<div class="filter-field">
-						<label><?php esc_html_e( 'Trasmissione', 'veicoli' ); ?></label>
+						<label><?php esc_html_e( 'Trasmissione', 'lp-widgets-veicoli' ); ?></label>
 						<select name="cambio">
-							<option value=""><?php esc_html_e( '- Trasmissione -', 'veicoli' ); ?></option>
+							<option value=""><?php esc_html_e( '- Trasmissione -', 'lp-widgets-veicoli' ); ?></option>
 							<?php foreach ( $cambi as $term ) : ?>
 								<option value="<?php echo esc_attr( $term->slug ); ?>"><?php echo esc_html( $term->name ); ?></option>
 							<?php endforeach; ?>
@@ -767,32 +767,32 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 					</div>
 
 					<div class="filter-field">
-						<label><?php esc_html_e( 'Costo rata da:', 'veicoli' ); ?></label>
+						<label><?php esc_html_e( 'Costo rata da:', 'lp-widgets-veicoli' ); ?></label>
 						<input type="number" name="prezzo_min" placeholder="130">
 					</div>
 
 					<div class="filter-field">
-						<label><?php esc_html_e( 'A:', 'veicoli' ); ?></label>
+						<label><?php esc_html_e( 'A:', 'lp-widgets-veicoli' ); ?></label>
 						<input type="number" name="prezzo_max" placeholder="1848">
 					</div>
 
 					<div class="filter-field">
-						<label><?php esc_html_e( 'Anticipo', 'veicoli' ); ?></label>
+						<label><?php esc_html_e( 'Anticipo', 'lp-widgets-veicoli' ); ?></label>
 						<select name="anticipo">
-							<option value=""><?php esc_html_e( 'Tutti', 'veicoli' ); ?></option>
-							<option value="si"><?php esc_html_e( 'Con anticipo', 'veicoli' ); ?></option>
-							<option value="no"><?php esc_html_e( 'Senza anticipo', 'veicoli' ); ?></option>
+							<option value=""><?php esc_html_e( 'Tutti', 'lp-widgets-veicoli' ); ?></option>
+							<option value="si"><?php esc_html_e( 'Con anticipo', 'lp-widgets-veicoli' ); ?></option>
+							<option value="no"><?php esc_html_e( 'Senza anticipo', 'lp-widgets-veicoli' ); ?></option>
 						</select>
 					</div>
 				</div>
 
 				<div class="filter-actions">
-					<?php 
+					<?php
 					// Pulsante Reset
 					$this->add_render_attribute( 'reset-wrapper', 'class', 'elementor-button-wrapper' );
 					$this->add_render_attribute( 'reset-button', 'class', 'btn-reset elementor-button' );
 					$this->add_render_attribute( 'reset-button', 'type', 'button' );
-					
+
 					if ( ! empty( $settings['reset_hover_animation'] ) ) {
 						$this->add_render_attribute( 'reset-button', 'class', 'elementor-animation-' . $settings['reset_hover_animation'] );
 					}
@@ -803,12 +803,12 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 						</button>
 					</div>
 
-					<?php 
+					<?php
 					// Pulsante Apply
 					$this->add_render_attribute( 'apply-wrapper', 'class', 'elementor-button-wrapper' );
 					$this->add_render_attribute( 'apply-button', 'class', 'btn-apply elementor-button' );
 					$this->add_render_attribute( 'apply-button', 'type', 'submit' );
-					
+
 					if ( ! empty( $settings['apply_hover_animation'] ) ) {
 						$this->add_render_attribute( 'apply-button', 'class', 'elementor-animation-' . $settings['apply_hover_animation'] );
 					}
@@ -823,7 +823,7 @@ class Veicoli_Filter_Widget extends \Elementor\Widget_Base {
 
 				<div class="filter-loading" style="display:none;">
 					<div class="spinner"></div>
-					<p><?php esc_html_e( 'Caricamento...', 'veicoli' ); ?></p>
+					<p><?php esc_html_e( 'Caricamento...', 'lp-widgets-veicoli' ); ?></p>
 				</div>
 			</div>
 			<!-- Fine contenuto collassabile -->

@@ -4,10 +4,10 @@ defined('ABSPATH') || exit; // Exit if accessed directly
 
 // Validate EMAIL field for Elementor Pro forms
 function elementor_form_email_field_validation( $field, $record, $ajax_handler ) {
-    
+
     // Validate email format
     if ( ! is_email( $field['value'] ) ) {
-        $ajax_handler->add_error( $field['id'], esc_html__( 'Invalid email address, it must be in xx@xx.xx format.', 'textdomain' ) );
+        $ajax_handler->add_error( $field['id'], esc_html__( 'Invalid email address, it must be in xx@xx.xx format.', 'lp-widgets' ) );
         return;
     }
 

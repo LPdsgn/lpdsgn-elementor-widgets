@@ -14,7 +14,7 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Prezzo Veicolo Dinamico', 'veicoli' );
+		return esc_html__( 'Prezzo Veicolo Dinamico', 'lp-widgets-veicoli' );
 	}
 
 	public function get_icon() {
@@ -50,7 +50,7 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 		if ( ! $post_id ) {
 			$post_id = get_the_ID();
 		}
-		
+
 		$terms = get_the_terms( $post_id, 'categoria_noleggio' );
 		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 			return $terms[0]->term_id;
@@ -86,7 +86,7 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'price_style_section',
 			[
-				'label' => esc_html__( 'Stile Prezzo', 'veicoli' ),
+				'label' => esc_html__( 'Stile Prezzo', 'lp-widgets-veicoli' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -94,7 +94,7 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'price_color',
 			[
-				'label' => esc_html__( 'Colore Prezzo', 'veicoli' ),
+				'label' => esc_html__( 'Colore Prezzo', 'lp-widgets-veicoli' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .prezzo-valore' => 'color: {{VALUE}}',
@@ -106,7 +106,7 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'price_typography',
-				'label' => esc_html__( 'Tipografia Prezzo', 'veicoli' ),
+				'label' => esc_html__( 'Tipografia Prezzo', 'lp-widgets-veicoli' ),
 				'selector' => '{{WRAPPER}} .prezzo-valore',
 			]
 		);
@@ -117,11 +117,11 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		// Verifica ACF
 		if ( ! function_exists( 'get_field' ) ) {
-			echo '<p>' . esc_html__( 'ACF non è attivo.', 'veicoli' ) . '</p>';
+			echo '<p>' . esc_html__( 'ACF non è attivo.', 'lp-widgets-veicoli' ) . '</p>';
 			return;
 		}
 		if ( ! is_singular( 'veicolo' ) ) {
-			echo '<p>' . esc_html__( 'Questo widget funziona solo nelle pagine singole dei veicoli.', 'veicoli' ) . '</p>';
+			echo '<p>' . esc_html__( 'Questo widget funziona solo nelle pagine singole dei veicoli.', 'lp-widgets-veicoli' ) . '</p>';
 			return;
 		}
 
@@ -152,15 +152,15 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 		$piani = get_field( 'piani_noleggio', $post_id );
 
 		if ( ! $piani ) {
-			echo '<p>' . esc_html__( 'Nessun piano di noleggio disponibile.', 'veicoli' ) . '</p>';
+			echo '<p>' . esc_html__( 'Nessun piano di noleggio disponibile.', 'lp-widgets-veicoli' ) . '</p>';
 			return;
 		}
 
 		// Piano di default (primo)
 		$piano_default = $piani[0];
 		$anticipo_attivo = $anticipo_disponibile ? true : false;
-		$prezzo_default = $anticipo_attivo && isset( $piano_default['prezzo_con_anticipo'] ) 
-			? $piano_default['prezzo_con_anticipo'] 
+		$prezzo_default = $anticipo_attivo && isset( $piano_default['prezzo_con_anticipo'] )
+			? $piano_default['prezzo_con_anticipo']
 			: $piano_default['prezzo_senza_anticipo'];
 		?>
 
@@ -172,15 +172,15 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 					<?php echo number_format( $prezzo_default, 0, ',', '.' ); ?>€
 				</span>
 				<span class="prezzo-label">
-					<?php esc_html_e( 'al mese', 'veicoli' ); ?>
-					<small><?php esc_html_e( '(iva esclusa)', 'veicoli' ); ?></small>
+					<?php esc_html_e( 'al mese', 'lp-widgets-veicoli' ); ?>
+					<small><?php esc_html_e( '(iva esclusa)', 'lp-widgets-veicoli' ); ?></small>
 				</span>
 			</div>
 
 			<!-- Dettagli piano inline -->
 			<div class="piano-dettagli">
 				<span class="dettaglio-durata" data-durata="<?php echo esc_attr( $piano_default['durata'] ); ?>">
-					<?php echo esc_html( $piano_default['durata'] ); ?> <?php esc_html_e( 'mesi', 'veicoli' ); ?>
+					<?php echo esc_html( $piano_default['durata'] ); ?> <?php esc_html_e( 'mesi', 'lp-widgets-veicoli' ); ?>
 				</span>
 				<span class="dettaglio-separatore">•</span>
 				<span class="dettaglio-km" data-km="<?php echo esc_attr( $piano_default['kilometri'] ); ?>">
@@ -188,13 +188,13 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 				</span>
 				<span class="dettaglio-separatore">•</span>
 				<span class="dettaglio-anticipo">
-					<?php esc_html_e( 'Anticipo', 'veicoli' ); ?> 
+					<?php esc_html_e( 'Anticipo', 'lp-widgets-veicoli' ); ?>
 					<span class="anticipo-valore" data-importo="<?php echo esc_attr( $importo_anticipo ? $importo_anticipo : 0 ); ?>">
-						<?php 
+						<?php
 						if ( $anticipo_disponibile && $anticipo_attivo ) {
 							echo number_format( $importo_anticipo, 0, ',', '.' ) . '€';
 						} else {
-							echo esc_html__( 'ZERO', 'veicoli' );
+							echo esc_html__( 'ZERO', 'lp-widgets-veicoli' );
 						}
 						?>
 					</span>
@@ -209,7 +209,7 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 						<span class="toggle-slider"></span>
 					</label>
 					<span class="toggle-label">
-						<?php esc_html_e( 'Anticipo', 'veicoli' ); ?>
+						<?php esc_html_e( 'Anticipo', 'lp-widgets-veicoli' ); ?>
 						<strong class="anticipo-importo"><?php echo number_format( $importo_anticipo, 0, ',', '.' ); ?>€</strong>
 					</span>
 				</div>
@@ -218,16 +218,16 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 			<!-- Selettore piano -->
 			<div class="piano-selector">
 				<label for="seleziona-piano-<?php echo esc_attr( $this->get_id() ); ?>">
-					<?php esc_html_e( 'Seleziona una quotazione', 'veicoli' ); ?>
+					<?php esc_html_e( 'Seleziona una quotazione', 'lp-widgets-veicoli' ); ?>
 				</label>
 				<select class="piano-dropdown" id="seleziona-piano-<?php echo esc_attr( $this->get_id() ); ?>">
 					<?php foreach ( $piani as $index => $piano ) : ?>
-						<option value="<?php echo esc_attr( $index ); ?>" 
+						<option value="<?php echo esc_attr( $index ); ?>"
 							data-durata="<?php echo esc_attr( $piano['durata'] ); ?>"
 							data-km="<?php echo esc_attr( $piano['kilometri'] ); ?>"
 							data-prezzo-con="<?php echo esc_attr( isset( $piano['prezzo_con_anticipo'] ) ? $piano['prezzo_con_anticipo'] : 0 ); ?>"
 							data-prezzo-senza="<?php echo esc_attr( $piano['prezzo_senza_anticipo'] ); ?>">
-							<?php echo esc_html( $piano['durata'] ); ?> <?php esc_html_e( 'mesi', 'veicoli' ); ?>, 
+							<?php echo esc_html( $piano['durata'] ); ?> <?php esc_html_e( 'mesi', 'lp-widgets-veicoli' ); ?>,
 							<?php echo number_format( $piano['kilometri'], 0, ',', '.' ); ?> km
 						</option>
 					<?php endforeach; ?>
@@ -243,7 +243,7 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 		} else {
 			$anticipo_bool = (bool) $anticipo_disponibile;
 		}
-		
+
 		$json_data = array(
 			'tipo_noleggio' => 'lungo_termine',
 			'piani' => $piani,
@@ -264,7 +264,7 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 		$prezzi = get_field( 'prezzi_noleggio_breve_termine', $post_id );
 
 		if ( ! $prezzi || ! is_array( $prezzi ) || empty( $prezzi ) ) {
-			echo '<p>' . esc_html__( 'Nessun prezzo disponibile per il noleggio breve termine.', 'veicoli' ) . '</p>';
+			echo '<p>' . esc_html__( 'Nessun prezzo disponibile per il noleggio breve termine.', 'lp-widgets-veicoli' ) . '</p>';
 			return;
 		}
 
@@ -282,30 +282,30 @@ class Veicolo_Pricing_Widget extends \Elementor\Widget_Base {
 					<?php echo number_format( $prezzo_default, 0, ',', '.' ); ?>€
 				</span>
 				<span class="prezzo-label">
-					<?php esc_html_e( 'al giorno', 'veicoli' ); ?>
-					<small><?php esc_html_e( '(iva esclusa)', 'veicoli' ); ?></small>
+					<?php esc_html_e( 'al giorno', 'lp-widgets-veicoli' ); ?>
+					<small><?php esc_html_e( '(iva esclusa)', 'lp-widgets-veicoli' ); ?></small>
 				</span>
 			</div>
 
 			<!-- Selettore durata (pulsanti) -->
 			<div class="piano-selector durata-selector-breve">
 				<label>
-					<?php esc_html_e( 'Seleziona durata', 'veicoli' ); ?>
+					<?php esc_html_e( 'Seleziona durata', 'lp-widgets-veicoli' ); ?>
 				</label>
-				<div class="durata-buttons" role="group" aria-label="<?php esc_attr_e( 'Seleziona durata noleggio', 'veicoli' ); ?>">
-					<?php foreach ( $prezzi as $index => $fascia ) : 
+				<div class="durata-buttons" role="group" aria-label="<?php esc_attr_e( 'Seleziona durata noleggio', 'lp-widgets-veicoli' ); ?>">
+					<?php foreach ( $prezzi as $index => $fascia ) :
 						$giorni = isset( $fascia['giorni_breve_termine'] ) ? $fascia['giorni_breve_termine'] : '';
 						$prezzo = isset( $fascia['prezzo_giorno_breve_termine'] ) ? floatval( $fascia['prezzo_giorno_breve_termine'] ) : 0;
 						$is_first = ( $index === 0 );
 					?>
-						<button 
-							type="button" 
-							class="durata-button<?php echo $is_first ? ' active' : ''; ?>" 
+						<button
+							type="button"
+							class="durata-button<?php echo $is_first ? ' active' : ''; ?>"
 							data-index="<?php echo esc_attr( $index ); ?>"
 							data-giorni="<?php echo esc_attr( $giorni ); ?>"
 							data-prezzo="<?php echo esc_attr( $prezzo ); ?>"
 							aria-pressed="<?php echo $is_first ? 'true' : 'false'; ?>">
-							<?php echo esc_html( $giorni ); ?> <?php echo ( intval( $giorni ) === 1 ) ? esc_html__( 'giorno', 'veicoli' ) : esc_html__( 'giorni', 'veicoli' ); ?>
+							<?php echo esc_html( $giorni ); ?> <?php echo ( intval( $giorni ) === 1 ) ? esc_html__( 'giorno', 'lp-widgets-veicoli' ) : esc_html__( 'giorni', 'lp-widgets-veicoli' ); ?>
 						</button>
 					<?php endforeach; ?>
 				</div>

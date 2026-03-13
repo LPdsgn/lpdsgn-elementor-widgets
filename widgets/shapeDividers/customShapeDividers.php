@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || die;
 function custom_elementor_shape_dividers( $additional_shapes ) {
 
 	$additional_shapes['curve-opacity'] = [
-		'title'        => esc_html__( 'Curve opacity', 'textdomain' ),
+		'title'        => esc_html__( 'Curve opacity', 'lp-widgets' ),
 		'url'          => LP_ELEMENTOR_URL . 'widgets/shapeDividers/curveOpacity.svg',
 		'path'         => LP_ELEMENTOR_PATH . 'widgets/shapeDividers/curveOpacity.svg',
 		'has_flip'     => true,

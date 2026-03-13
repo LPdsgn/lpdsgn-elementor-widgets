@@ -15,7 +15,7 @@ class Scroll_Down_Indicator extends \Elementor\Widget_Base
     }
 
     public function get_title() {
-        return esc_html__('Scroll Down Indicator', 'textdomain');
+        return esc_html__('Scroll Down Indicator', 'lp-widgets');
     }
 
     public function get_icon() {
@@ -55,7 +55,7 @@ class Scroll_Down_Indicator extends \Elementor\Widget_Base
         $this->add_control(
             'color_switch',
             [
-                'label' => esc_html__('Colore', 'textdomain'),
+                'label' => esc_html__('Colore', 'lp-widgets'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Dark', 'lp-widgets'),
                 'label_off' => esc_html__('Light', 'lp-widgets'),
@@ -83,7 +83,7 @@ class Scroll_Down_Indicator extends \Elementor\Widget_Base
         $this->add_control(
             'opacity',
             [
-                'label' => esc_html__('Opacity', 'text-domain'),
+                'label' => esc_html__('Opacity', 'lp-widgets'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [

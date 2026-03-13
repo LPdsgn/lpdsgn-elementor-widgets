@@ -44,7 +44,7 @@ function add_veicoli_elementor_widget_categories( $elements_manager ) {
 	$elements_manager->add_category(
 		'veicoli',
 		[
-			'title' => esc_html__( 'Veicoli', 'veicoli' ),
+			'title' => esc_html__( 'Veicoli', 'lp-widgets-veicoli' ),
 			'icon' => 'fa fa-car',
 		]
 	);
