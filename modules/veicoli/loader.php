@@ -9,9 +9,16 @@
 if ( ! defined( 'ABSPATH' ) )
 	exit;
 
-// Percorsi basati sulla directory del file
+// Percorsi basati sulla posizione reale di questo file
 define( 'VEICOLI_WIDGETS_PATH', __DIR__ . '/' );
-define( 'VEICOLI_WIDGETS_URL', get_stylesheet_directory_uri() . '/widgets/veicoli/' );
+define( 'VEICOLI_WIDGETS_URL', get_stylesheet_directory_uri() . '/' . ltrim(
+	str_replace(
+		wp_normalize_path( get_stylesheet_directory() ),
+		'',
+		wp_normalize_path( __DIR__ )
+	),
+	'/'
+) . '/' );
 
 // Include ACF field definitions and taxonomies
 require_once VEICOLI_WIDGETS_PATH . 'acf-fields.php';

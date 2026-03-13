@@ -56,26 +56,46 @@ Display breadcrumbs using the WordPress core functions to retrieve titles and UR
 
 ## How To Use
 
-Clone this repository inside your theme's folder. From your command line:
+Clone this repository inside your child theme's folder. From your command line:
 ```bash
-# Clone this repository
 $ git clone https://github.com/LPdsgn/lp-elementor-Widgets.git
 ```
 
-If you download as a `.zip` archive instead, **remove** the version number (e.g. `-1.0.1`) from the folder's name
+If you download as a `.zip` archive instead, **remove** the version number (e.g. `-1.0.1`) from the folder's name:
 > `lp-elementor-widgets-1.0.1` → `lp-elementor-widgets`
 
-Then add this line of code to your `functions.php` file to load the widgets:
+Then add this single line to your child theme's `functions.php`:
 ```php
-/* CUSTOM ELEMENTOR WIDGET 
- * qui i widget custom registrati in Elementor
- */
-include_once(get_stylesheet_directory() . '/widgets/components.php');
+require_once get_stylesheet_directory() . '/lp-elementor-widgets/loader.php';
 ```
+
+### Structure
+
+```
+lp-elementor-widgets/
+├── loader.php              ← entry point
+├── assets/
+│   └── scrollDown.min.css
+├── widgets/                ← generic widgets (Elementor core only)
+│   ├── breadcrumbs/
+│   ├── scrollDownIndicator/
+│   ├── scrollDownSpinner/
+│   └── shapeDividers/
+└── modules/                ← modules with additional dependencies
+    └── veicoli/            ← requires ACF Pro + Elementor Pro
+```
+
+### Veicoli Module
+
+The `modules/veicoli/` module is loaded automatically **only if** ACF Pro, Elementor and Elementor Pro are all active. It provides three additional widgets in a dedicated **Veicoli** category:
+
+- **Filtro Veicoli** — AJAX-powered filter by taxonomy, price range and deposit
+- **Prezzo Veicolo Dinamico** — dynamic pricing widget reading ACF repeater fields
+- **Veicolo Loop Info** — compact info card for use inside Elementor Loop Grid
 
 ## Download
 
-You can [download](https://github.com/LPdsgn/LP-Elementor-Widgets/releases/) the latest version of directly as a `.zip` archive.
+You can [download](https://github.com/LPdsgn/LP-Elementor-Widgets/releases/) the latest version directly as a `.zip` archive.
 
 ## Notes
 

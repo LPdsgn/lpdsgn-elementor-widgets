@@ -454,6 +454,30 @@ class Breadcrumbs extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
+			'show_paged',
+			[
+				'label' => __( 'Show Page Number', 'lp-widgets' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'lp-widgets' ),
+				'label_off' => __( 'Hide', 'lp-widgets' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'paged_label',
+			[
+				'label' => __( 'Page Label', 'lp-widgets' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => __( 'Page', 'lp-widgets' ),
+				'condition' => [
+					'show_paged' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'enable_schema',
 			[
 				'label' => __( 'Enable Schema.org Markup', 'lp-widgets' ),
@@ -896,6 +920,40 @@ class Breadcrumbs extends \Elementor\Widget_Base {
 					'url' => '',
 				];
 			}
+		}
+
+		// ── Archive pagination ────────────────────
+		$show_paged = ( $settings['show_paged'] ?? 'yes' ) === 'yes';
+		$paged = (int) get_query_var( 'paged' );
+
+		if ( $show_paged && $paged > 1 ) {
+			// Turn the last crumb into a link so the paged item becomes the true current
+			if ( ! empty( $breadcrumbs ) && empty( end( $breadcrumbs )['url'] ) ) {
+				$paged_url = '';
+				if ( is_home() ) {
+					$paged_url = $blog_page_id ? get_permalink( $blog_page_id ) : home_url( '/' );
+				} elseif ( is_post_type_archive() ) {
+					$pto_obj = get_queried_object();
+					$paged_url = $pto_obj ? get_post_type_archive_link( $pto_obj->name ) : '';
+				} elseif ( is_category() || is_tag() || is_tax() ) {
+					$queried = get_queried_object();
+					$paged_url = get_term_link( $queried->term_id, $queried->taxonomy );
+					if ( is_wp_error( $paged_url ) ) {
+						$paged_url = '';
+					}
+				} elseif ( is_author() ) {
+					$queried = get_queried_object();
+					$paged_url = get_author_posts_url( $queried->ID );
+				}
+				if ( $paged_url ) {
+					$breadcrumbs[ count( $breadcrumbs ) - 1 ]['url'] = $paged_url;
+				}
+			}
+			$paged_label = $settings['paged_label'] ?? __( 'Page', 'lp-widgets' );
+			$breadcrumbs[] = [
+				'title' => "$paged_label $paged",
+				'url' => '',
+			];
 		}
 
 		// ── Output ───────────────────────────────
