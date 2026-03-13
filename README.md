@@ -82,7 +82,9 @@ lp-elementor-widgets/
 │   ├── scrollDownSpinner/
 │   └── shapeDividers/
 └── modules/                ← modules with additional dependencies
-    └── veicoli/            ← requires ACF Pro + Elementor Pro
+    ├── veicoli/            ← requires ACF Pro + Elementor Pro
+    └── elementor-forms/    ← requires Elementor Pro
+        └── form-email-validation.php
 ```
 
 ### Veicoli Module
@@ -92,6 +94,12 @@ The `modules/veicoli/` module is loaded automatically **only if** ACF Pro, Eleme
 - **Filtro Veicoli** — AJAX-powered filter by taxonomy, price range and deposit
 - **Prezzo Veicolo Dinamico** — dynamic pricing widget reading ACF repeater fields
 - **Veicolo Loop Info** — compact info card for use inside Elementor Loop Grid
+
+### Elementor Forms Module
+
+The `modules/elementor-forms/` module is loaded automatically **only if** Elementor Pro is active.
+
+- **Email Validation** (`form-email-validation.php`) — blocks disposable/spam email domains on Elementor Pro form submissions. Validates `is_email()` format and checks the submitted address domain against a curated blocklist. Hook: `elementor_pro/forms/validation/email`.
 
 ## Download
 

@@ -67,3 +67,10 @@ add_action( 'init', function () {
 		require_once LP_ELEMENTOR_PATH . 'modules/veicoli/loader.php';
 	}
 }, 5 );
+
+// ── Modulo Form Validation (richiede Elementor Pro) ─────────────────────────
+add_action( 'init', function () {
+	if ( class_exists( '\ElementorPro\Plugin' ) ) {
+		require_once LP_ELEMENTOR_PATH . 'modules/elementor-forms/form-email-validation.php';
+	}
+}, 5 );
